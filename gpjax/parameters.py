@@ -44,6 +44,8 @@ def transform(
     Returns:
         State: A new nnx.State object containing the transformed parameters.
     """
+    def _is_param(x):
+        return isinstance(x, nnx.VariableState) and issubclass(x.type, Parameter)
 
     def _inner(param):
         bijector = params_bijection.get(param.tag, npt.IdentityTransform())
@@ -59,9 +61,9 @@ def transform(
 
     # Transform each parameter in the state
     transformed_gp_params: nnx.State = jtu.tree_map(
-        lambda x: _inner(x) if isinstance(x, Parameter) else x,
+        lambda x: _inner(x) if _is_param(x) else x,
         gp_params,
-        is_leaf=lambda x: isinstance(x, Parameter),
+        is_leaf=_is_param,
     )
     return nnx.State.merge(transformed_gp_params, *other_params)
 
