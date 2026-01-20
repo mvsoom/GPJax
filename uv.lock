@@ -891,7 +891,7 @@ requires-dist = [
     { name = "mkdocs-jupyter", marker = "extra == 'docs'", specifier = ">=0.24.3" },
     { name = "mkdocs-literate-nav", marker = "extra == 'docs'", specifier = ">=0.6.0" },
     { name = "mkdocs-material", marker = "extra == 'docs'", specifier = ">=9.5.12" },
-    { name = "mkdocstrings", extras = ["python"], marker = "extra == 'docs'", specifier = "<0.31.0" },
+    { name = "mkdocstrings", extras = ["python"], marker = "extra == 'docs'", specifier = "<1.1.0" },
     { name = "mktestdocs", marker = "extra == 'dev'", specifier = ">=0.2.1" },
     { name = "nbconvert", marker = "extra == 'docs'", specifier = ">=7.16.2" },
     { name = "networkx", marker = "extra == 'dev'" },

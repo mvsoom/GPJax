@@ -44,6 +44,7 @@ def transform(
     Returns:
         State: A new nnx.State object containing the transformed parameters.
     """
+
     def _is_param(x):
         return isinstance(x, nnx.VariableState) and issubclass(x.type, Parameter)
 
